@@ -24,7 +24,7 @@ MAX_CPU_SPEED=$(sudo lshw -class processor | grep 'capacity' | awk -F': ' '{prin
 #For Getting the Current Speed Of The CPU
 CURRENT_SPEED=$(sudo lshw -class processor | grep 'size' | awk -F': ' '{print $2}' |head -n 1)
 #For Getting The RAM Information
-RAM_INFO=$(sudo lshw -C memory | grep "size:" | awk -F': ' '{print $2}' | head -n 1)
+RAM_INFO=$(sudo free -h | grep 'Mem' | awk '{print $2}')
 #For Getting The Name Of The Video Card Model
 VIDEO_INFO=$(sudo lshw -class display | grep "product:" | awk '{print $2}')
 
